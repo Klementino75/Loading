@@ -12,13 +12,11 @@ public class Main {
     }
 
     private static void openProgress(String fileName) {
-        GameProgress gameProgress = null;
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))) { // откроем входной поток для чтения файла
-            gameProgress = (GameProgress)ois.readObject(); // десериализуем объект и скастим его в класс
+            System.out.println(ois.readObject()); // десериализуем объект и печатает
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-        System.out.println(gameProgress);
     }
 
     private static void openZip(String zipName) {
